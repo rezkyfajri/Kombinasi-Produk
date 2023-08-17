@@ -1,0 +1,73 @@
+<!-- templates/home.html -->
+{% extends '../base.html' %}
+
+{% block title %}Train Data{% endblock %}
+
+{% block content %}
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Apriori /</span> Result</h4>
+
+              <div class="row">
+                  <!-- File input -->
+                  <div class="card">
+                    <h5 class="card-header">Form input</h5>
+                    <div class="card-body">
+                      <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-fullname">Confidence/</label>
+                          <input type="text" class="form-control" id="basic-default-fullname" name="confidence" placeholder="0.01" />
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-fullname">Support</label>
+                          <input type="text" class="form-control" id="basic-default-fullname" name="support" placeholder="0.01" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Process</button>
+                      </form>
+                    </div>
+                  </div>
+
+                  <hr class="my-5" />
+
+                  <!-- Basic Bootstrap Table -->
+                  <div class="card">
+                    <h5 class="card-header">Table Result</h5>
+                    <div class="table-responsive text-nowrap">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>No.</th>
+                            <th>Antecedents</th>
+                            <th>Consequents</th>
+                            <th>Support</th>
+                            <th>Confidance</th>
+                            <th>Lift Ratio</th>
+                          </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                          {% if data %}
+                          {% for row in data %}
+                          <tr>
+                              <td>{{ row.no }}</td>
+                              <td>{{ row.antecedents }}</td>
+                              <td>{{ row.consequents }}</td>
+                              <td>{{ row.support }}</td>
+                              <td>{{ row.confidence }}</td>
+                              <td>{{ row.lift }}</td>
+                          </tr>
+                          {% endfor %}
+                          {% else %}
+                          <tr>
+                            <td>No Data to Show</td>
+                          </tr>
+                          {% endif %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <!--/ Basic Bootstrap Table -->
+                </div>
+
+                {% endblock %}

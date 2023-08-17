@@ -1,0 +1,134 @@
+<!-- templates/home.html -->
+{% extends '../base.html' %}
+
+{% block title %}Upload Data{% endblock %}
+
+{% block content %}
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Apriori /</span> Upload Data</h4>
+
+              <div class="row">
+                  <!-- File input -->
+                  <div class="card">
+                    <h5 class="card-header">File input</h5>
+                    <div class="card-body">
+                      <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                          <label for="formFile" class="form-label">Upload Data</label>
+                          <input class="form-control" type="file" id="formFile" name="upload" accept=".csv" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                      </form>
+                    </div>
+                  </div>
+
+                  <hr class="my-5" />
+
+                  <!-- Basic Bootstrap Table -->
+                  <div class="card">
+                    <h5 class="card-header">Table Upload Data</h5>
+                    <div class="table-responsive text-nowrap">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>No.</th>
+                            <th>KOPI KULO</th>
+                            <th>KOPI HITAM</th>
+                            <th>COKELAT KEJU</th>
+                            <th>COKELAT</th>
+                            <th>COOKIES N CREAM</th>
+                            <th>AVOCATTO VANILLA</th>
+                            <th>AVOCATTO CHOCOLATE</th>
+                            <th>KOPI BAILEYS </th>
+                            <th>LEMON LIME </th>
+                            <th>HONEY LEMON</th>
+                            <th>LEMON YAKULT</th>
+                            <th>ARUNIKA</th>
+                            <th>KOPI DIREGALIN</th>
+                            <th>MATCHA LATTE</th>
+                            <th>YAKULT BERRY</th>
+                            <th>KOPI BERRY</th>
+                            <th>KOPI NAM</th>
+                            <th>VICTORY CARAMEL FRAPPE</th>
+                            <th>STRAWBERRY CHEESECAKE</th>
+                            <th>MATCHA KEJU</th>
+                            <th>KOPI SPEKULO</th>
+                            <th>REGALIN </th>
+                            <th>BLACKFOREST</th>
+                            <th>KULOCADO</th>
+                            <th>KOPI KEJU</th>
+                            <th>REVIVE MATCHA CARAMEL</th>
+                            <th>KOPI LATTE</th>
+                            <th>KING BISCOFF BLEND</th>
+                            <th>DANIKA</th>
+                            <th>NAYANIKA</th>
+                            <th>MATCHA PURIN</th>
+                            <th>SISUKA PURIN</th>
+                            <th>HOJICHA</th>
+                            <th>KOPI KULO 1LT</th>
+                          </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+                          {% if data %}
+                          {% for row in data %}
+                          <tr>
+                            <td>{{ row.no }}</td>
+                            <td>{{ row.kopi_kulo }}</td>
+                            <td>{{ row.kopi_hitam }}</td>
+                            <td>{{ row.cokelat_keju }}</td>
+                            <td>{{ row.cokelat }}</td>
+                            <td>{{ row.cookies_n_cream }}</td>
+                            <td>{{ row.avocatto_vanilla }}</td>
+                            <td>{{ row.avocatto_chocolate }}</td>
+                            <td>{{ row.kopi_baileys_ }}</td>
+                            <td>{{ row.lemon_lime_ }}</td>
+                            <td>{{ row.honey_lemon }}</td>
+                            <td>{{ row.lemon_yakult }}</td>
+                            <td>{{ row.arunika }}</td>
+                            <td>{{ row.kopi_diregalin }}</td>
+                            <td>{{ row.matcha_latte }}</td>
+                            <td>{{ row.yakult_berry }}</td>
+                            <td>{{ row.kopi_berry }}</td>
+                            <td>{{ row.kopi_nam }}</td>
+                            <td>{{ row.victory_caramel_frappe }}</td>
+                            <td>{{ row.strawberry_cheesecake }}</td>
+                            <td>{{ row.matcha_keju }}</td>
+                            <td>{{ row.kopi_spekulo }}</td>
+                            <td>{{ row.regalin_ }}</td>
+                            <td>{{ row.blackforest }}</td>
+                            <td>{{ row.kulocado }}</td>
+                            <td>{{ row.kopi_keju }}</td>
+                            <td>{{ row.revive_matcha_caramel }}</td>
+                            <td>{{ row.kopi_latte }}</td>
+                            <td>{{ row.king_biscoff_blend }}</td>
+                            <td>{{ row.danika }}</td>
+                            <td>{{ row.nayanika }}</td>
+                            <td>{{ row.matcha_purin }}</td>
+                            <td>{{ row.sisuka_purin }}</td>
+                            <td>{{ row.hojicha }}</td>
+                            <td>{{ row.kopi_kulo_1lt }}</td>                            
+                          </tr>
+                          {% endfor %}
+                          {% else %}
+                          <tr>
+                            <td>
+                              TIDAK ADA DATA DI TAMPILKAN
+                            </td>
+                          </tr>
+                          {% endif %}
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <!--/ Basic Bootstrap Table -->
+                </div>
+
+              
+            </div>
+            <!-- / Content -->
+
+{% endblock %}

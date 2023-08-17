@@ -1,0 +1,5 @@
+1. install python 3.9
+2. open terminal and go to directory "mysite"
+3. pip install -r requerement.txt
+4. python manage.py runserver
+5. web run in http://localhost:8000/apriori/login/
